@@ -18,7 +18,7 @@ import LanguageIcon from "@mui/icons-material/Language";
 */
 const PUBLIC_KEY = "0302fb41-0e02-49d1-814b-f147124c073f";
 const ASSISTANT_ID_ENGLISH = "d4896898-e290-4adc-90fe-1e56727e0746";
-const ASSISTANT_ID_ARABIC = "30d40f65-33b8-4b5f-af0e-51f36496f1fa";
+const ASSISTANT_ID_ARABIC = "c69d0aaf-d6fd-4ae4-a4ba-be9e194b0a7d";
 
 export default function App() {
   const theme = useTheme();
