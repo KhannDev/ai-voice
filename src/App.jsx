@@ -6,7 +6,6 @@ import {
   Button,
   Typography,
   Stack,
-  useTheme,
   Paper,
   CssBaseline,
 } from "@mui/material";
@@ -21,7 +20,6 @@ const ASSISTANT_ID_ENGLISH = "d4896898-e290-4adc-90fe-1e56727e0746";
 const ASSISTANT_ID_ARABIC = "c69d0aaf-d6fd-4ae4-a4ba-be9e194b0a7d";
 
 export default function App() {
-  const theme = useTheme();
   const vapiRef = useRef(null);
   const [language, setLanguage] = useState("en"); // 'en' or 'ar'
   const [isListening, setIsListening] = useState(false);
@@ -122,6 +120,18 @@ export default function App() {
             color: "#E6EEF8",
           }}
         >
+          <Box
+            component="img"
+            src="/bbk-logo1.png" // or import logo from './logo.png' if using src
+            alt="Logo"
+            sx={{
+              position: "absolute",
+              top: 16,
+              right: 16,
+              maxWidth: 100, // optional: limit width
+              height: "auto",
+            }}
+          />
           <Stack spacing={2} alignItems="center">
             <Box sx={{ maxWidth: 680 }}>
               <Typography variant="h4" sx={{ fontWeight: 700 }}>
