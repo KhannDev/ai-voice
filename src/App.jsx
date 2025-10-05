@@ -46,7 +46,9 @@ export default function App() {
   }
 
   const startListening = async () => {
-    setStatusText("Requesting microphone...");
+    setStatusText(
+      isRtl ? "طلب الوصول إلى الميكروفون..." : "Requesting microphone..."
+    );
     // Optionally check for microphone availability/permission
     try {
       // ensure client created
@@ -58,17 +60,17 @@ export default function App() {
       await client.start(assistantId);
 
       setIsListening(true);
-      setStatusText("Listening...");
+      setStatusText(isRtl ? "يتم الاستماع..." : "Listening...");
     } catch (err) {
       console.error("startListening failed:", err);
       setIsListening(false);
-      setStatusText("Failed to start");
+      setStatusText(isRtl ? "فشل البدء" : "Failed to start");
       // Show helpful message in console / UI
     }
   };
 
   const stopListening = async () => {
-    setStatusText("Stopping...");
+    setStatusText(isRtl ? "جاري الإيقاف..." : "Stopping...");
     try {
       if (vapiRef.current?.stop) await vapiRef.current.stop();
       if (vapiRef.current?.end) await vapiRef.current.end();
@@ -76,7 +78,7 @@ export default function App() {
       // ignore
     } finally {
       setIsListening(false);
-      setStatusText("Idle");
+      setStatusText(isRtl ? "خامل" : "Idle");
     }
   };
 
@@ -139,15 +141,6 @@ export default function App() {
                   ? "كيف يمكنني مساعدتك اليوم؟"
                   : "How can I assist you today?"}
               </Typography>
-
-              <Typography
-                variant="subtitle1"
-                sx={{ mt: 1, color: "rgba(230,238,248,0.8)" }}
-              >
-                {isRtl
-                  ? "أنا هنا لمساعدتك في تفاعلات الصوت والاسئلة المتعلقة بالذكاء الاصطناعي"
-                  : "I'm here to help with your AI voice interactions and queries"}
-              </Typography>
             </Box>
 
             {/* Language selector (pills) */}
@@ -156,7 +149,6 @@ export default function App() {
                 variant={language === "en" ? "contained" : "outlined"}
                 color={language === "en" ? "primary" : "inherit"}
                 onClick={() => setLanguage("en")}
-                startIcon={<span style={{ fontSize: 18 }}>🇬🇧</span>}
                 sx={{
                   textTransform: "none",
                   borderRadius: 50,
@@ -177,7 +169,6 @@ export default function App() {
                 variant={language === "ar" ? "contained" : "outlined"}
                 color={language === "ar" ? "primary" : "inherit"}
                 onClick={() => setLanguage("ar")}
-                startIcon={<span style={{ fontSize: 18 }}>🇸🇦</span>}
                 sx={{
                   textTransform: "none",
                   borderRadius: 50,
