@@ -101,7 +101,7 @@ export default function App() {
       <Box
         sx={{
           minHeight: "100vh",
-          bgcolor: "#0F172A",
+          bgcolor: "#001d68",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -117,26 +117,25 @@ export default function App() {
             py: { xs: 4, sm: 6 },
             textAlign: isRtl ? "right" : "center",
             direction: isRtl ? "rtl" : "ltr",
-            background:
-              "linear-gradient(180deg, rgba(15,23,42,1) 0%, rgba(7,10,24,1) 100%)",
+            background: "#001d68",
             color: "#E6EEF8",
           }}
         >
           <Box
             component="img"
-            src="/bbk-logo1.png" // or import logo from './logo.png' if using src
+            src="/bbk-logo3.png" // or import logo from './logo.png' if using src
             alt="Logo"
             sx={{
               position: "absolute",
               top: 16,
-              right: 16,
-              maxWidth: 100, // optional: limit width
+              left: 16,
+              width: { xs: 140, sm: 140, md: 180 }, // optional: limit width
               height: "auto",
             }}
           />
           <Stack spacing={2} alignItems="center">
             <Box sx={{ maxWidth: 680 }}>
-              <Typography variant="h4" sx={{ fontWeight: 700 }}>
+              <Typography variant="h5" sx={{ fontWeight: 700 }}>
                 {isRtl
                   ? "كيف يمكنني مساعدتك اليوم؟"
                   : "How can I assist you today?"}
@@ -144,7 +143,7 @@ export default function App() {
             </Box>
 
             {/* Language selector (pills) */}
-            <Stack direction="row" spacing={1} sx={{ mt: 1 }}>
+            <Stack direction="row" spacing={2} sx={{ mt: 2 }}>
               <Button
                 variant={language === "en" ? "contained" : "outlined"}
                 color={language === "en" ? "primary" : "inherit"}
@@ -152,9 +151,12 @@ export default function App() {
                 sx={{
                   textTransform: "none",
                   borderRadius: 50,
-                  px: 2,
-                  bgcolor: language === "en" ? "#0ea5a4" : "transparent",
-                  color: language === "en" ? "#041014" : "#E6EEF8",
+                  px: 3, // more horizontal padding
+                  py: 1.5, // more vertical padding
+                  fontSize: "1rem", // bigger text
+                  minWidth: 120, // ensures button looks wide enough
+                  bgcolor: language === "en" ? "#0035ad" : "transparent",
+                  color: language === "en" ? "#E6EEF8" : "#E6EEF8",
                   border:
                     language === "en"
                       ? "none"
@@ -172,9 +174,12 @@ export default function App() {
                 sx={{
                   textTransform: "none",
                   borderRadius: 50,
-                  px: 2,
-                  bgcolor: language === "ar" ? "#0ea5a4" : "transparent",
-                  color: language === "ar" ? "#041014" : "#E6EEF8",
+                  px: 3,
+                  py: 1.5,
+                  fontSize: "1rem",
+                  minWidth: 120,
+                  bgcolor: language === "ar" ? "#0035ad" : "transparent",
+                  color: language === "ar" ? "#E6EEF8" : "#E6EEF8",
                   border:
                     language === "ar"
                       ? "none"
@@ -249,13 +254,13 @@ export default function App() {
                   width: { xs: 110, sm: 140 },
                   height: { xs: 110, sm: 140 },
                   borderRadius: "50%",
-                  background: isListening ? "#EF4444" : "#06B6D4",
+                  background: isListening ? "#EF4444" : "#ff9a00",
                   color: "#fff",
                   boxShadow: isListening
                     ? "0 12px 30px rgba(239,68,68,0.25)"
                     : "0 12px 30px rgba(6,182,212,0.18)",
                   "&:hover": {
-                    background: isListening ? "#F87171" : "#0891B2",
+                    background: isListening ? "#F87171" : "#ff9a00",
                   },
                   fontSize: { xs: 28, sm: 34 },
                   display: "flex",
