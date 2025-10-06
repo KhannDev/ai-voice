@@ -78,7 +78,7 @@ export default function App() {
       // ignore
     } finally {
       setIsListening(false);
-      setStatusText(isRtl ? "خامل" : "Idle");
+      setStatusText(isRtl ? "متوقف" : "Idle");
     }
   };
 
