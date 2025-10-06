@@ -128,7 +128,7 @@ export default function App() {
             sx={{
               position: "absolute",
               top: 16,
-              left: 16,
+              right: 16,
               width: { xs: 140, sm: 140, md: 180 }, // optional: limit width
               height: "auto",
             }}
